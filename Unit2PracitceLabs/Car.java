@@ -30,13 +30,34 @@ public class Car
      * fuel in the tank.
      * 
      *
-     * @pre      Specified distance cannot result in the consumption than is available
+     * @pre      Specified distance cannot result in more consumption than is available
      * @param    distance distance that the car drives in miles
      */
     public void drive(double distance)
     {
-        // put your code here
-        return x+y;
+        fuelTank -= distance / fuelEfficiency;
     }
+    
+    /**
+     * Returns the amount of gas in the tank in gallons
+     * @return amount of gas in the tank in gallons
+     */
+    public double getGasInTank()
+    {
+        return fuelTank;
+    }
+    
+    /**
+     * Will add the specified amount of gas in gallons to the fuel tank
+     *
+     * @pre     There cannot be a negative amount of gallons added, must be positive
+     * @param   gallons   The amount of gallons of gas that are put in the tank
+     * @return  description of the return value
+     */
+    public void addGas(double gallons)
+    {
+        fuelTank += gallons;
+    }
+
 
 }
