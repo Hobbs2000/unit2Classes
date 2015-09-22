@@ -13,8 +13,9 @@ public class Door
     private String name;
 
     /**
-     * Default constructor for objects of class Door
+     * Constructor for objects of class Door 
      * @param name  name is the name of the door set by the user
+     * @param open  is the door open or closed, true for open, false for closed
      */
     public Door(String name, boolean open)
     {
@@ -22,7 +23,17 @@ public class Door
         this.name = name;
         this.open = open;
     }
+    
+    /**
+     * Default constructor for class Door, no parameters
+     */
+    public Door()
+    {
+        this.name = "Door";
+        this.open = false;
+    }
 
+    
     /**
      * This will close the door by setting the open variable to false
      * @pre When closing, door has to be open prior

@@ -23,14 +23,26 @@ public class VendingMachine
         this.cans = 50;
         this.tokens = 0;
     }
+    public VendingMachine(int canStart)
+    {
+        this.cans = canStart;
+        this.tokens = 0;
+    }
 
     /**
      * Puts the amount of cans specified into the vending machine
      * @param cans  the amount of cans to be put into the vending machine
      */
-    public void fillUp(int cans)
+    public void fillUp(int newCans)
     {
-       this.cans = cans;
+       if (newCans + this.cans < 51)
+       {
+           this.cans = newCans;
+       }
+       else
+       {
+           System.out.println(this.error());
+       }
     }
     
     /**
@@ -38,12 +50,19 @@ public class VendingMachine
      */
     public void buyCan()
     {
-        this.cans -= 1;
-        this.tokens += 1;
+        if (this.cans > 0)
+        {
+            this.cans -= 1;
+            this.tokens += 1;
+        }
+        else
+        {
+            System.out.println(this.error());
+        }
     }
     
     /**
-     * Shows the amount of cans in the machine
+     * Returns the amount of cans in the machine
      * @return cans The amount of cans in the machine
      */
     public int getCanCount()
@@ -52,11 +71,18 @@ public class VendingMachine
     }
     
     /**
-     * 
+     * Returns the amount of tokens in the machine
+     * @return tokens the amount of tokens in the machine
      */
-    public void getTokenCount()
+    public int getTokenCount()
     {
-        
+        return this.tokens;
+    }
+    
+    private String error()
+    {
+        String errorMessage = "This will not work, the machine is either empty or the amount of cans you are trying to enter is to much";
+        return errorMessage;
     }
     
 }
