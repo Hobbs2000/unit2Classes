@@ -22,11 +22,11 @@ public class Target
      * @param y the y-coordinate of the target
      * @param r the radius of the target
      */
-    public Target(int x, int y)
+    public Target(int x, int y, int r)
     {
         this.x = x;
         this.y = y;
-        this.radius = 100;
+        this.radius = r;
     }
 
     /**
@@ -35,6 +35,7 @@ public class Target
      */
     public void draw(Graphics2D g2)
     {
+        g2.setColor(Color.black);
         g2.fillOval(this.x, this.y, this.radius, this.radius);
         
         int addY = 12;
@@ -42,9 +43,11 @@ public class Target
         //Setup the new coordinates and dimensions for the second circle of the target
         g2.setColor(Color.white);
 
-        int x2 = this.x + addX;
+        double preX = this.x + (this.radius * .12);
+        int x2 = (int)preX;
         
-        int y2 = this.y + addY;
+        double preY = this.y + (this.radius * .12);
+        int y2 = (int)preY;
         
         double preR = this.radius * .25;
         int subR = (int)preR;
@@ -56,9 +59,11 @@ public class Target
         //Third circle
         g2.setColor(Color.black);
 
-        int x3 = x2 + 9;
-
-        int y3 = y2 + 9;
+        preX = this.x + (this.radius * .21);
+        int x3 = (int)preX;
+        
+        preY = this.y + (this.radius * .21);
+        int y3 = (int)preY;
         
         preR = r2 * .25;
         subR = (int)preR;
@@ -70,9 +75,11 @@ public class Target
         //Fourth circle
         g2.setColor(Color.white);
         
-        int x4 = x3 + 13;
+        preX = this.x + (this.radius * .33);
+        int x4 = (int)preX;
         
-        int y4 = y3 + 13;
+        preY = this.y + (this.radius * .33);
+        int y4 = (int)preY;
         
         preR = r3 * .45;
         subR = (int)preR;
@@ -84,9 +91,11 @@ public class Target
         //Fifth circle
         g2.setColor(Color.black);
         
-        int x5 = x4 + 8;
+        preX = this.x + (this.radius * .42);
+        int x5 = (int)preX;
         
-        int y5 = y4 + 8;
+        preY = this.y + (this.radius * .42);
+        int y5 = (int)preY;
         
         preR = r4 * .55;
         subR = (int)preR;
