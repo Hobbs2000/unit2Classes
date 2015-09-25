@@ -17,7 +17,7 @@ public class TargetComponent extends JComponent
         try 
         {
             
-            for (int go = 0;go<100;go++)
+            for (int go = 0;go<5;go++)
             {
                 int newX = numGen.nextInt(300);
                 int newY = numGen.nextInt(300);

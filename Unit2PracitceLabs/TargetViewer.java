@@ -18,7 +18,20 @@ public class TargetViewer
         
         TargetComponent component = new TargetComponent();
         frame.add(component);
+        try
+        {
+            for (;;)
+            {
+                Thread.sleep(1);
+                frame.repaint();
+                frame.setVisible(true);
+            }
+        }
+        catch(InterruptedException ex) 
+        {
+            Thread.currentThread().interrupt();
+        }
         
-        frame.setVisible(true);
+        //frame.setVisible(true);
     }
 }

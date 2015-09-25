@@ -53,7 +53,7 @@ public class Target
         int subR = (int)preR;
         int r2 = this.radius - subR;
         
-        System.out.println("2nd circle x:"+x2+", y:"+y2);
+        //System.out.println("2nd circle x:"+x2+", y:"+y2);
         g2.fillOval(x2, y2, r2, r2);
         
         //Third circle
@@ -69,7 +69,7 @@ public class Target
         subR = (int)preR;
         int r3 = r2 - subR;
         
-        System.out.println("3rd circle x:"+x3+", y:"+y3);
+        //System.out.println("3rd circle x:"+x3+", y:"+y3);
         g2.fillOval(x3, y3, r3, r3);
         
         //Fourth circle
@@ -85,7 +85,7 @@ public class Target
         subR = (int)preR;
         int r4 = r3 - subR;
         
-        System.out.println("4th circle x:"+x4+", y:"+y4);
+        //System.out.println("4th circle x:"+x4+", y:"+y4);
         g2.fillOval(x4, y4, r4, r4);
         
         //Fifth circle
@@ -101,7 +101,7 @@ public class Target
         subR = (int)preR;
         int r5 = r4 - subR;
         
-        System.out.println("5th circle x:"+x5+", y:"+y5);
+        //System.out.println("5th circle x:"+x5+", y:"+y5);
         g2.fillOval(x5, y5, r5, r5);
     }
 
