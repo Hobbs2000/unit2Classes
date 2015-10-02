@@ -12,7 +12,7 @@ import javax.swing.JComponent;
 public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
-    // ...
+    private Background bg;
     
     
     
@@ -30,8 +30,8 @@ public class CityscapeComponent extends JComponent
         Graphics2D g2 = (Graphics2D) g;
         
         // invoke the draw method on each object in your Cityscape
-        // ...
-        
+        bg = new Background(true, 600, 800);
+        bg.draw(g2);
         
     }
     
