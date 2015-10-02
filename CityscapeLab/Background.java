@@ -42,7 +42,7 @@ public class Background
         if (this.isDay == true)
         {
             g2.setColor(Color.BLUE);
-            g2.fillRect(this.height, this.width, 0,0);
+            g2.fillRect(0, 0, this.height, this.width);
         }
     }
 }
