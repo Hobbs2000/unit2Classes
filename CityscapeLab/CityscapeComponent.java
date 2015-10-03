@@ -13,7 +13,7 @@ public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
     private Background bg;
-    private Cloud c;
+    
     
     
     // define the CityscapeComponent contructor and intiailize all instance variables
@@ -32,9 +32,6 @@ public class CityscapeComponent extends JComponent
         // invoke the draw method on each object in your Cityscape
         bg = new Background(true, 600, 800);
         bg.draw(g2);
-        
-        c = new Cloud(300, 200);
-        c.draw(g2);
         
     }
     
