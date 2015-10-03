@@ -38,10 +38,11 @@ public class CityscapeViewer
         frame.setVisible(true);
         
         // animate the cityscape
-        for( int seconds = 0; seconds < ANIMATION_TIME_IN_SECONDS; seconds++ )
+        //int seconds = 0; seconds < ANIMATION_TIME_IN_SECONDS; seconds++
+        for( ;; )
         {
             component.nextFrame();
-            Thread.sleep( 1000 );
+            Thread.sleep( 100 );
         }
         
     }
