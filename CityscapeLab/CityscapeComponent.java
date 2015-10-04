@@ -12,7 +12,12 @@ import java.util.*;
 public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
-    private Background bg = new Background(true, 600, 800);
+    private Background bg = new Background(true, 600, 800, 550);
+    private boolean setting = false;
+    private boolean isDay = false;
+    private boolean sunCameUp = false;
+    private boolean sunWentDown = false;
+    
     private Cloud c = new Cloud(300, 100);
     private Cloud c2 = new Cloud (150, 80);
     private Cloud c3 = new Cloud(500, 200);
@@ -77,6 +82,79 @@ public class CityscapeComponent extends JComponent
         {
             c3 = new Cloud(this.c3.getX() + Cloud.DX, this.c3.getY());
         }
+        
+        
+        //////////////   Controls the time of day    ////////////////
+        if (this.setting == false)
+        {
+            if (isDay == true)
+            {
+                if (this.bg.getObjY() > 70)
+                {
+                    //Sun comes up
+                    bg = new Background(true, 600, 800, this.bg.getObjY() - Background.OBJ_DY);
+                }
+                else 
+                {
+                    this.sunCameUp = true;
+                    this.setting = true;
+                }
+            }
+            else
+            {
+                if (this.bg.getObjY() > 70)
+                {
+                    //Moon comes up
+                    bg =  new Background(false, 600, 800, this.bg.getObjY() - Background.OBJ_DY);
+                }
+                else
+                {
+                    this.sunCameUp = false;
+                    this.setting = true;
+                }
+            }
+        }
+        else if(this.setting == true)
+        {
+            if (this.isDay == true)
+            {
+                if (this.bg.getObjY() < 550)
+                {
+                    //Sun goes down
+                    bg =  new Background(true, 600, 800, this.bg.getObjY() + Background.OBJ_DY);
+                }
+                else
+                {
+                    this.sunWentDown = true;
+                    this.setting = false;
+                }
+            }
+            else
+            {
+                if (this.bg.getObjY() < 550)
+                {
+                    //Moon goes down
+                    bg = new Background(false, 600, 800, this.bg.getObjY() + Background.OBJ_DY);
+                }
+                else
+                {
+                    this.sunWentDown = false;
+                    this.setting = false;
+                }
+            }
+        }
+        if (this.sunCameUp == true && this.sunWentDown == true)
+        {
+            this.isDay = false;
+        }
+        else if (this.sunCameUp == false && this.sunWentDown == false)
+        {
+            this.isDay = true;
+        }
+        //////////////////////////////////////////////////////////////////
+        
+        
+        
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         repaint();
     }
