@@ -5,17 +5,18 @@ public class Cloud
 {
     private int x;
     private int y;
+    private boolean day;
     
     public static final int DX = 5;
     /**
     * Constructor for class Cloud
     * @param   size    Will set the size of that cloud instance
     */
-    public Cloud(int x, int y)
+    public Cloud(boolean isDay, int x, int y)
     {
         this.x = x;
         this.y = y;
-        
+        this.day = isDay;
     }
     
     
@@ -24,8 +25,14 @@ public class Cloud
      */
     public void draw(Graphics2D g2)
     {
-        g2.setColor(Color.white);
-        
+        if (this.day == true)
+        {
+            g2.setColor(Color.white);
+        }
+        else
+        {
+            g2.setColor(Color.GRAY);
+        }
         g2.fillRect(this.x, this.y, 100, 80);
         
         int rightX = this.x+60;

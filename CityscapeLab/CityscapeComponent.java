@@ -14,13 +14,13 @@ public class CityscapeComponent extends JComponent
     // define the objects in your Cityscape as instance variables
     private Background bg = new Background(true, 600, 800, 550);
     private boolean setting = false;
-    private boolean isDay = false;
+    private boolean isDay = true;
     private boolean sunCameUp = false;
     private boolean sunWentDown = false;
     
-    private Cloud c = new Cloud(300, 100);
-    private Cloud c2 = new Cloud (150, 80);
-    private Cloud c3 = new Cloud(500, 200);
+    private Cloud c = new Cloud(this.isDay, 300, 100);
+    private Cloud c2 = new Cloud (this.isDay, 150, 80);
+    private Cloud c3 = new Cloud(this.isDay, 500, 200);
     
     // define the CityscapeComponent contructor and intiailize all instance variables
     // ...
@@ -56,31 +56,31 @@ public class CityscapeComponent extends JComponent
         if (this.c.getX() > 800)
         {
             newY = numGen.nextInt(400);
-            c = new Cloud(-50, newY);
+            c = new Cloud(this.isDay, -50, newY);
         }
         else
         {
-            c = new Cloud(this.c.getX() + Cloud.DX, c.getY() );
+            c = new Cloud(this.isDay, this.c.getX() + Cloud.DX, c.getY() );
         }
         
         if (this.c2.getX() > 800)
         {
             newY = numGen.nextInt(200);
-            c2 = new Cloud(-50, newY);
+            c2 = new Cloud(this.isDay, -50, newY);
         }
         else 
         {
-            c2 = new Cloud(this.c2.getX() + Cloud.DX, this.c2.getY());
+            c2 = new Cloud(this.isDay, this.c2.getX() + Cloud.DX, this.c2.getY());
         }
         
         if (this.c3.getX() > 800)
         {
             newY = numGen.nextInt(300);
-            c3 = new Cloud(-50, newY);
+            c3 = new Cloud(this.isDay, -50, newY);
         }
         else 
         {
-            c3 = new Cloud(this.c3.getX() + Cloud.DX, this.c3.getY());
+            c3 = new Cloud(this.isDay, this.c3.getX() + Cloud.DX, this.c3.getY());
         }
         
         
