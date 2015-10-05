@@ -22,9 +22,14 @@ public class CityscapeComponent extends JComponent
     private Cloud c2 = new Cloud (this.isDay, 150, 80);
     private Cloud c3 = new Cloud(this.isDay, 500, 200);
     
-    // define the CityscapeComponent contructor and intiailize all instance variables
-    // ...
-    
+    private int futureBuildingNum;
+    /**
+     * 
+     */
+    public CityscapeComponent(int futureNum)
+    {
+        this.futureBuildingNum = futureNum;
+    }
     
     /**
      * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
@@ -40,6 +45,29 @@ public class CityscapeComponent extends JComponent
         c.draw(g2);
         c2.draw(g2);
         c3.draw(g2);
+        
+         if (this.futureBuildingNum == 1)
+        {
+            FutureBuilding fb1 = new FutureBuilding(this.isDay, 200, 200);
+            fb1.draw(g2);
+        }
+        if(this.futureBuildingNum > 1)
+        {
+            FutureBuilding fb1 = new FutureBuilding(this.isDay, 200, 200);
+            fb1.draw(g2);
+            FutureBuilding fb2 = new FutureBuilding(this.isDay, 300, 300);
+            fb2.draw(g2);
+        }
+        if(this.futureBuildingNum > 2)
+        {
+            FutureBuilding fb1 = new FutureBuilding(this.isDay, 200, 200);
+            fb1.draw(g2);
+            FutureBuilding fb2 = new FutureBuilding(this.isDay, 300, 300);
+            fb2.draw(g2);
+            FutureBuilding fb3 = new FutureBuilding(this.isDay, 400, 400);
+            fb3.draw(g2);
+        }
+        
         
     }
     
