@@ -4,7 +4,7 @@ import javax.swing.*;
  * Will draw a basic building, like a skyscraper
  * 
  * @author Calvin Field
- * @version 10/2/15
+ * @version 2 October 2015
  */
 
 public class FutureBuilding
@@ -55,19 +55,11 @@ public class FutureBuilding
         }
         g2.fillOval(this.x-2, (this.y+120)-2, 154, 154);
         //3rd Floor Background
-        if (this.isDay == true)
-        {
-            g2.setColor(Color.GRAY);
-        }
-        else
-        {
-            g2.setColor(Color.GREEN);
-        }
         g2.fillOval(this.x-2, (this.y+240)-2, 154, 154);
         
         
         //1st Floor
-                if (this.isDay == true)
+        if (this.isDay == true)
         {
             g2.setColor(Color.BLACK);
         }
@@ -149,5 +141,21 @@ public class FutureBuilding
         g2.fillRect(this.x+12, (this.y+240)+80, 30, 30); 
         g2.fillRect(this.x+60, (this.y+240)+80, 30, 30);
         g2.fillRect(this.x+108, (this.y+240)+80, 30, 30);
+    }
+    
+    /**
+     * 
+     */
+    public int getX()
+    {
+        return this.x;
+    }
+    
+    /**
+     * 
+     */
+    public int getY()
+    {
+        return this.y;
     }
 }

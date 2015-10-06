@@ -1,6 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Draws a cloud to be implemented in the CityScape program
+ * 
+ * @author Calving Field
+ * @version 6 October 2015
+ */
 public class Cloud
 {
     private int x;

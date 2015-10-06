@@ -3,8 +3,8 @@ import javax.swing.JFrame;
 /**
  * Class that contains the main method for the program and creates the frame containing the component.
  * 
- * @author @gcschmit
- * @version 18 July 2014
+ * @author Calvin Field
+ * @version 6 October 2015
  */
 public class CityscapeViewer
 {
@@ -30,7 +30,7 @@ public class CityscapeViewer
         
         
         // a frame contains a single component; create the Cityscape component and add it to the frame
-        CityscapeComponent component = new CityscapeComponent( 2 );
+        CityscapeComponent component = new CityscapeComponent( 4 );
         frame.add(component);
         
         // make the frame visible which will result in the paintComponent method being invoked on the

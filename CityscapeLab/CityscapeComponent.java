@@ -6,8 +6,8 @@ import java.util.*;
  * Class that creates instances of the classes that comprise the cityscape and delegates drawing the
  *  cityscape to these object.
  * 
- * @author @gcschmit
- * @version 18 July 2014
+ * @author Calvin Field
+ * @version 6 October 2015
  */
 public class CityscapeComponent extends JComponent
 {
@@ -24,18 +24,51 @@ public class CityscapeComponent extends JComponent
     private Cloud c3 = new Cloud(this.isDay, 500, 200);
     
     private int futureBuildingNum;
+    private FutureBuilding fb1;
+    private FutureBuilding fb2;
+    private FutureBuilding fb3;
+    private FutureBuilding fb4;
+
     /**
      * 
+     * @param   futureNum   Will determine the amount of futuristic buildings in the cityscape
      */
     public CityscapeComponent(int futureNum)
     {
-        this.futureBuildingNum = futureNum;
+       this.futureBuildingNum = futureNum;
+       if (this.futureBuildingNum > 4)
+       {
+           this.futureBuildingNum = 4;
+       }
+       Random numGen = new Random();
+       for (int go=5;go>0;go--)
+       {
+           int randX = numGen.nextInt(701-(-30))+(-30);
+           int randY = numGen.nextInt(400-200)+200; 
+
+           if(go == 4)
+           {
+               this.fb4 = new FutureBuilding(this.isDay, randX, randY);
+           }
+           else if(go == 3)
+           {
+               this.fb3 = new FutureBuilding(this.isDay, randX, randY);
+           }
+           else if(go == 2)
+           {
+               this.fb2 = new FutureBuilding(this.isDay, randX, randY);
+           }
+           else if(go == 1)
+           {
+               this.fb1 = new FutureBuilding(this.isDay, randX, randY);
+           }
+       }
     }
     
     /**
      * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
      * It does not need to be invoked explicitly.
-     *
+     *@param    g   The graphics context for the program
      */
     public void paintComponent(Graphics g)
     {
@@ -47,27 +80,31 @@ public class CityscapeComponent extends JComponent
         c2.draw(g2);
         c3.draw(g2);
         
-         if (this.futureBuildingNum == 1)
+        
+        if (this.futureBuildingNum == 1)
         {
-            FutureBuilding fb1 = new FutureBuilding(this.isDay, 200, 200);
             fb1.draw(g2);
         }
-        if(this.futureBuildingNum > 1)
+        else if(this.futureBuildingNum == 2)
         {
-            FutureBuilding fb1 = new FutureBuilding(this.isDay, 200, 200);
             fb1.draw(g2);
-            FutureBuilding fb2 = new FutureBuilding(this.isDay, 300, 300);
             fb2.draw(g2);
         }
-        if(this.futureBuildingNum > 2)
+        else if(this.futureBuildingNum == 3)
         {
-            FutureBuilding fb1 = new FutureBuilding(this.isDay, 200, 200);
             fb1.draw(g2);
-            FutureBuilding fb2 = new FutureBuilding(this.isDay, 300, 300);
             fb2.draw(g2);
-            FutureBuilding fb3 = new FutureBuilding(this.isDay, 400, 400);
             fb3.draw(g2);
         }
+        else 
+        {
+            fb1.draw(g2);
+            fb2.draw(g2);
+            fb3.draw(g2);
+            fb4.draw(g2);
+        }
+
+        
         
         
     }
@@ -79,7 +116,28 @@ public class CityscapeComponent extends JComponent
     public void nextFrame()
     {
         // update the objects in the cityscape so they are animated
-        // ...
+        
+        //Changes the color of the buildings depending on if its day or night  
+        for (int go=5;go>0;go--)
+        {
+            if(go == 4)
+            {
+                this.fb4 = new FutureBuilding(this.isDay, fb4.getX(), fb4.getY());
+            }
+            else if(go == 3)
+            {
+                this.fb3 = new FutureBuilding(this.isDay, fb3.getX(), fb3.getY());
+            }
+            else if(go == 2)
+            {
+                this.fb2 = new FutureBuilding(this.isDay, fb2.getX(), fb2.getY());
+            }
+            else if(go == 1)
+            {
+                this.fb1 = new FutureBuilding(this.isDay, fb1.getX(), fb1.getY());
+            }
+        }
+        
         Random numGen = new Random();
         int newY;
         if (this.c.getX() > 800)
@@ -219,7 +277,6 @@ public class CityscapeComponent extends JComponent
             this.justChanged = true;
         }
         System.out.println("X:"+this.bg.getObjX()+" Y:"+this.bg.getObjY());
-
         //////////////////////////////////////////////////////////////////
         
         

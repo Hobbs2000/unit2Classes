@@ -1,10 +1,10 @@
 import java.awt.*;
 import javax.swing.*;
 /**
- * Is the background for a JFrame
+ * Is the background for a JFrame, contains an animated background object
  * 
  * @author Calvin Field
- * @version 10/2/15
+ * @version 10 October 2015
  */
 public class Background
 {
@@ -14,7 +14,7 @@ public class Background
     private int ObjY;
     private int ObjX;
     public static final int OBJ_DY = 3; 
-    public static final int OBJ_DX = 1;
+    public static final int OBJ_DX = 2;
     
     /**
      * Constructor for the Background class
