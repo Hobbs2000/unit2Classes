@@ -112,10 +112,10 @@ public class CityscapeComponent extends JComponent
             c3 = new Cloud(this.isDay, this.c3.getX() + Cloud.DX, this.c3.getY());
         }
         
-        
-        //////////////   Controls the time of day    ////////////////
+
+        //////////////   Controls the day and night cycles    ////////////////
         if (this.setting == false)
-        {
+        {   
             if (isDay == true)
             {
                 if (this.justChanged == true)
@@ -123,18 +123,18 @@ public class CityscapeComponent extends JComponent
                     bg = new Background(true, 600, 800, 0, 0 );
                     this.justChanged = false;
                 }
-                else if(this.bg.getObjY() > 70)
+                
+                if(this.bg.getObjY() > 70 && this.justChanged == false)
                 {
-                    //Sun comes up
+                    //Sun comes up and goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y  =  (int)(.0081*(Math.pow(DnewBG_X-244,2))+70);
+                    int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg = new Background(true, 600, 800, newBG_X, newBG_Y );
                 }
-                else 
+                else
                 {
                     this.sunCameUp = true;
-                    //System.out.println(bg.getObjY());
                     this.setting = true;
                 }
             }
@@ -145,13 +145,14 @@ public class CityscapeComponent extends JComponent
                     bg =  new Background(false, 600, 800, 0,0);
                     this.justChanged = false;
                 }
-                else if (this.bg.getObjY() > 70)
+
+                if (this.bg.getObjY() > 70 && this.justChanged == false)
                 {
-                    //Moon comes up
+                    //Moon comes up and goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y  =  (int)(.0081*(Math.pow(DnewBG_X-244,2))+70);
+                    int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
-                    bg =  new Background(false, 600, 800, newBG_Y, newBG_X);
+                    bg =  new Background(true, 600, 800, newBG_Y, newBG_X);
                 }
                 else
                 {
@@ -169,11 +170,12 @@ public class CityscapeComponent extends JComponent
                     bg =  new Background(true, 600, 800, 0,0);
                     this.justChanged = false;
                 }
-                else if (this.bg.getObjY() < 550)
+                
+                if (this.bg.getObjY() < 550 && this.justChanged == false)
                 {
                     //Sun goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y  =  (int)(.0081*(Math.pow(DnewBG_X-244,2))+70);
+                    int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg =  new Background(true, 600, 800, newBG_Y, newBG_X);
                 }
@@ -190,11 +192,12 @@ public class CityscapeComponent extends JComponent
                     bg =  new Background(false, 600, 800, 0,0);
                     this.justChanged = false;
                 }
-                else if (this.bg.getObjY() < 550)
+                
+                if (this.bg.getObjY() < 550 && this.justChanged == false)
                 {
                     //Moon goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y  =  (int)(.0081*(Math.pow(DnewBG_X-244,2))+70);
+                    int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg = new Background(false, 600, 800, newBG_Y, newBG_X);
                 }
@@ -216,8 +219,8 @@ public class CityscapeComponent extends JComponent
             this.justChanged = true;
         }
         System.out.println("X:"+this.bg.getObjX()+" Y:"+this.bg.getObjY());
+
         //////////////////////////////////////////////////////////////////
-        
         
         
         // request that the Java Runtime repaints this component by invoking its paintComponent method
