@@ -12,7 +12,7 @@ import java.util.*;
 public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
-    private Background bg = new Background(true, 600, 800, 550);
+    private Background bg = new Background(true, 600, 800, 0, 0);
     private boolean setting = false;
     private boolean isDay = true;
     private boolean sunCameUp = false;
@@ -119,12 +119,17 @@ public class CityscapeComponent extends JComponent
             {
                 if (this.bg.getObjY() > 70)
                 {
+                    //-0.0046349206349206
                     //Sun comes up
-                    bg = new Background(true, 600, 800, this.bg.getObjY() - Background.OBJ_DY);
+                    double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_X = (int)DnewBG_X;
+                    bg = new Background(true, 600, 800, newBG_X, newBG_Y );
                 }
                 else 
                 {
                     this.sunCameUp = true;
+                    System.out.println(bg.getObjY());
                     this.setting = true;
                 }
             }
@@ -133,7 +138,10 @@ public class CityscapeComponent extends JComponent
                 if (this.bg.getObjY() > 70)
                 {
                     //Moon comes up
-                    bg =  new Background(false, 600, 800, this.bg.getObjY() - Background.OBJ_DY);
+                    double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_X = (int)DnewBG_X;
+                    bg =  new Background(false, 600, 800, newBG_Y, newBG_X);
                 }
                 else
                 {
@@ -149,7 +157,10 @@ public class CityscapeComponent extends JComponent
                 if (this.bg.getObjY() < 550)
                 {
                     //Sun goes down
-                    bg =  new Background(true, 600, 800, this.bg.getObjY() + Background.OBJ_DY);
+                    double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_X = (int)DnewBG_X;
+                    bg =  new Background(true, 600, 800, newBG_Y, newBG_X);
                 }
                 else
                 {
@@ -162,7 +173,10 @@ public class CityscapeComponent extends JComponent
                 if (this.bg.getObjY() < 550)
                 {
                     //Moon goes down
-                    bg = new Background(false, 600, 800, this.bg.getObjY() + Background.OBJ_DY);
+                    double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_X = (int)DnewBG_X;
+                    bg = new Background(false, 600, 800, newBG_Y, newBG_X);
                 }
                 else
                 {
@@ -179,6 +193,7 @@ public class CityscapeComponent extends JComponent
         {
             this.isDay = true;
         }
+        System.out.println("X:"+this.bg.getObjX()+" Y:"+this.bg.getObjY());
         //////////////////////////////////////////////////////////////////
         
         
