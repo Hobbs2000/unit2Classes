@@ -54,7 +54,7 @@ public class Background
             
             //Make the sun
             g2.setColor(Color.YELLOW);
-            this.ObjY = (-1*(this.ObjY))+550;
+            this.ObjY = (this.ObjY);
             g2.fillOval(this.ObjX, this.ObjY, 100, 100);
             
         }
@@ -65,6 +65,7 @@ public class Background
             g2.fillRect(0, 0, this.height, this.width);
             
             //Make the moon
+            this.ObjY = (this.ObjY);
             g2.setColor(Color.WHITE);
             g2.fillOval(this.ObjX, this.ObjY, 100, 100);
             g2.setColor(Color.BLACK);

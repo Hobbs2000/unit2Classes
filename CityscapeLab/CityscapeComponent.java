@@ -119,10 +119,12 @@ public class CityscapeComponent extends JComponent
             {
                 if (this.bg.getObjY() > 70)
                 {
-                    //-0.0046349206349206
+                    //.01
                     //Sun comes up
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    //int newBG_Y = (int)(Math.pow((-.1*DnewBG_X), 2)+(2*DnewBG_X)-500);
+                    //int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X+300, 2))-70);
+                    int newBG_Y = (int)((-.0081*(Math.pow(DnewBG_X, 2)))+(4.86*DnewBG_X)-800);
                     int newBG_X = (int)DnewBG_X;
                     bg = new Background(true, 600, 800, newBG_X, newBG_Y );
                 }
@@ -139,7 +141,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Moon comes up
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_Y = (int)((-.0081*(Math.pow(DnewBG_X, 2)))-(4.86*DnewBG_X)-800);
                     int newBG_X = (int)DnewBG_X;
                     bg =  new Background(false, 600, 800, newBG_Y, newBG_X);
                 }
@@ -158,7 +160,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Sun goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_Y = (int)((-.0081*(Math.pow(DnewBG_X, 2)))-(4.86*DnewBG_X)-800);
                     int newBG_X = (int)DnewBG_X;
                     bg =  new Background(true, 600, 800, newBG_Y, newBG_X);
                 }
@@ -174,7 +176,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Moon goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
-                    int newBG_Y = (int)(Math.pow((-0.0046349206349206*DnewBG_X), 2)+(3.7079365079365*DnewBG_X));
+                    int newBG_Y = (int)((-.0081*(Math.pow(DnewBG_X, 2)))-(4.86*DnewBG_X)-800);
                     int newBG_X = (int)DnewBG_X;
                     bg = new Background(false, 600, 800, newBG_Y, newBG_X);
                 }
