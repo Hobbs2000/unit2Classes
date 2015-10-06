@@ -13,7 +13,6 @@ public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
     private Background bg = new Background(true, 600, 800, 0, 0);
-    private Background night_bg = new Background(false, 600, 800, 0, 0);
     private boolean setting = false;
     private boolean isDay = true;
     private boolean sunCameUp = false;
