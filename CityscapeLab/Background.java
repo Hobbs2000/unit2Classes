@@ -75,15 +75,8 @@ public class Background
     }
     
     /**
-     * 
-     */
-    public boolean getIsDay()
-    {
-        return this.isDay;
-    }
-    
-    /**
-     * 
+     * Returns the current Y coordinate of the background object
+     * @return ObjX  Y coordinate of the background object (either the sun or the moon)
      */
     public int getObjY()
     {
@@ -91,7 +84,8 @@ public class Background
     }
     
     /**
-    * 
+    * Returns the current X coordinate of the background object
+    * @return ObjX  X coordinate of the background object (either the sun or the moon)
     */
     public int getObjX()
     {

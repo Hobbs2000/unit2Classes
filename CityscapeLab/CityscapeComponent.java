@@ -32,13 +32,22 @@ public class CityscapeComponent extends JComponent
     private FutureBuilding fb2;
     private FutureBuilding fb3;
     private FutureBuilding fb4;
-
+    
+    //Basic buildings
+    private int basicBuildingNum;
+    private BasicBuilding b1;
+    private BasicBuilding b2;
+    private BasicBuilding b3;
+    private BasicBuilding b4;
+    
     /**
      * 
      * @param   futureNum   Will determine the amount of futuristic buildings in the cityscape
      */
-    public CityscapeComponent(int futureNum)
+    public CityscapeComponent(int futureNum, int buildingNum)
     {
+        
+       //Finds out how many future buildings to set up
        this.futureBuildingNum = futureNum;
        if (this.futureBuildingNum > 4)
        {
@@ -65,6 +74,38 @@ public class CityscapeComponent extends JComponent
            else if(go == 1)
            {
                this.fb1 = new FutureBuilding(this.isDay, randX, randY);
+           }
+           
+       }
+       
+       //Finds out how many basic buildings to set up and ask the user how many floors each one has
+       this.basicBuildingNum = buildingNum;
+       int floors;
+       Scanner input = new Scanner(System.in);
+       for (; buildingNum > 0; buildingNum--)
+       {
+           int randX = numGen.nextInt(701-(-30))+(-30);
+           
+           System.out.print("How many floors will building number "+buildingNum+" have?: ");
+           if (buildingNum == 1)
+           {
+               floors = input.nextInt();
+               this.b1 = new BasicBuilding(floors, randX);
+           }
+           else if (buildingNum == 2)
+           {
+               floors = input.nextInt();
+               this.b2 = new BasicBuilding(floors, randX);
+           }
+           else if(buildingNum == 3)
+           {
+               floors = input.nextInt();
+               this.b3 = new BasicBuilding(floors, randX);
+           }
+           else if(buildingNum == 4)
+           {
+               floors = input.nextInt();
+               this.b4 = new BasicBuilding(floors, randX);
            }
        }
     }
@@ -106,6 +147,30 @@ public class CityscapeComponent extends JComponent
             fb2.draw(g2);
             fb3.draw(g2);
             fb4.draw(g2);
+        }
+        
+        //Draws the specific amount of basic buildings that was input by the user
+        if (this.basicBuildingNum == 1)
+        {
+            b1.draw(g2);
+        }
+        else if(this.basicBuildingNum == 2)
+        {
+            b1.draw(g2);
+            b2.draw(g2);
+        }
+        else if(this.basicBuildingNum == 3)
+        {
+            b1.draw(g2);
+            b2.draw(g2);
+            b3.draw(g2);
+        }
+        else
+        {
+            b1.draw(g2);
+            b2.draw(g2);
+            b3.draw(g2);
+            b4.draw(g2);
         }
     }
     
