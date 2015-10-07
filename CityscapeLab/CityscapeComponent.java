@@ -12,6 +12,8 @@ import java.util.*;
 public class CityscapeComponent extends JComponent
 {
     // define the objects in your Cityscape as instance variables
+    
+    //Background and background instance variables
     private Background bg = new Background(true, 600, 800, 0, 0);
     private boolean setting = false;
     private boolean isDay = true;
@@ -19,10 +21,12 @@ public class CityscapeComponent extends JComponent
     private boolean sunWentDown = false;
     private boolean justChanged = false;
     
+    //Clouds
     private Cloud c = new Cloud(this.isDay, 300, 100);
     private Cloud c2 = new Cloud (this.isDay, 150, 80);
     private Cloud c3 = new Cloud(this.isDay, 500, 200);
     
+    //Future Buildings
     private int futureBuildingNum;
     private FutureBuilding fb1;
     private FutureBuilding fb2;
@@ -80,7 +84,7 @@ public class CityscapeComponent extends JComponent
         c2.draw(g2);
         c3.draw(g2);
         
-        
+        //Draws only the specific amount of buildings that were put in by the user
         if (this.futureBuildingNum == 1)
         {
             fb1.draw(g2);
@@ -103,10 +107,6 @@ public class CityscapeComponent extends JComponent
             fb3.draw(g2);
             fb4.draw(g2);
         }
-
-        
-        
-        
     }
     
     /**
@@ -138,6 +138,7 @@ public class CityscapeComponent extends JComponent
             }
         }
         
+        //Moves the clouds from left to right, and randomizes their y coordinates
         Random numGen = new Random();
         int newY;
         if (this.c.getX() > 800)
@@ -178,6 +179,7 @@ public class CityscapeComponent extends JComponent
             {
                 if (this.justChanged == true)
                 {
+                    //Reset the background to day
                     bg = new Background(true, 600, 800, 0, 0 );
                     this.justChanged = false;
                 }
@@ -186,6 +188,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Sun comes up and goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    //The equation for the parabola motion
                     int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg = new Background(true, 600, 800, newBG_X, newBG_Y );
@@ -200,6 +203,7 @@ public class CityscapeComponent extends JComponent
             {
                 if (justChanged == true)
                 {
+                    //Reset the background to night
                     bg =  new Background(false, 600, 800, 0,0);
                     this.justChanged = false;
                 }
@@ -208,6 +212,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Moon comes up and goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    //The equation for the parabola motion
                     int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg =  new Background(true, 600, 800, newBG_Y, newBG_X);
@@ -225,6 +230,7 @@ public class CityscapeComponent extends JComponent
             {
                 if (justChanged == true)
                 {
+                    //Reset the background to day
                     bg =  new Background(true, 600, 800, 0,0);
                     this.justChanged = false;
                 }
@@ -233,6 +239,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Sun goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    //The equation for the parabola motion
                     int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg =  new Background(true, 600, 800, newBG_Y, newBG_X);
@@ -247,6 +254,7 @@ public class CityscapeComponent extends JComponent
             {
                 if (justChanged == true)
                 {
+                    //Reset the background to night
                     bg =  new Background(false, 600, 800, 0,0);
                     this.justChanged = false;
                 }
@@ -255,6 +263,7 @@ public class CityscapeComponent extends JComponent
                 {
                     //Moon goes down
                     double DnewBG_X = this.bg.getObjX() + Background.OBJ_DX;
+                    //The equation for the parabola motion
                     int newBG_Y  =  (int)(.004*(Math.pow(DnewBG_X-300,2))+70);
                     int newBG_X = (int)DnewBG_X;
                     bg = new Background(false, 600, 800, newBG_Y, newBG_X);
@@ -276,7 +285,7 @@ public class CityscapeComponent extends JComponent
             this.isDay = true;
             this.justChanged = true;
         }
-        System.out.println("X:"+this.bg.getObjX()+" Y:"+this.bg.getObjY());
+        //System.out.println("X:"+this.bg.getObjX()+" Y:"+this.bg.getObjY());
         //////////////////////////////////////////////////////////////////
         
         
