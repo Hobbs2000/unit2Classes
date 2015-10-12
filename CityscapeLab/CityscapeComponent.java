@@ -90,22 +90,23 @@ public class CityscapeComponent extends JComponent
            if (buildingNum == 1)
            {
                floors = input.nextInt();
-               this.b1 = new BasicBuilding(floors, randX);
+               System.out.println(floors);
+               this.b1 = new BasicBuilding(this.isDay, floors, randX);
            }
            else if (buildingNum == 2)
            {
                floors = input.nextInt();
-               this.b2 = new BasicBuilding(floors, randX);
+               this.b2 = new BasicBuilding(this.isDay, floors, randX);
            }
            else if(buildingNum == 3)
            {
                floors = input.nextInt();
-               this.b3 = new BasicBuilding(floors, randX);
+               this.b3 = new BasicBuilding(this.isDay, floors, randX);
            }
            else if(buildingNum == 4)
            {
                floors = input.nextInt();
-               this.b4 = new BasicBuilding(floors, randX);
+               this.b4 = new BasicBuilding(this.isDay, floors, randX);
            }
        }
     }
@@ -141,7 +142,7 @@ public class CityscapeComponent extends JComponent
             fb2.draw(g2);
             fb3.draw(g2);
         }
-        else 
+        else if (this.futureBuildingNum == 4) 
         {
             fb1.draw(g2);
             fb2.draw(g2);
@@ -165,7 +166,7 @@ public class CityscapeComponent extends JComponent
             b2.draw(g2);
             b3.draw(g2);
         }
-        else
+        else if (this.basicBuildingNum == 4)
         {
             b1.draw(g2);
             b2.draw(g2);

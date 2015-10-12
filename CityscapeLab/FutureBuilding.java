@@ -29,7 +29,6 @@ public class FutureBuilding
      */
     public void draw(Graphics2D g2)
     {
-        
         //1st Floor Background
         if (this.isDay == true)
         {
